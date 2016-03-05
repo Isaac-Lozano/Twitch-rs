@@ -1,0 +1,8 @@
+[package]
+name = "twitch-chat"
+version = "0.1.0"
+authors = ["Isaac Lozano <109lozanoi@gmail.com>"]
+
+[dependencies]
+gtk = "0.0.6"
+websocket = "0.15.1"
