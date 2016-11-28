@@ -7,7 +7,6 @@ use std::cmp;
 
 use std::io::prelude::*;
 use std::net::{TcpStream, ToSocketAddrs};
-use std::io;
 
 #[derive(Debug)]
 pub struct Message
@@ -88,7 +87,7 @@ impl Client
         }
 
         let mut sock = self.sock.take().unwrap();
-        let mut end_idx;
+        let end_idx;
 
         /* read data until a line is read */
         loop
@@ -132,7 +131,7 @@ impl Client
                 let split: Vec<&str> = line[1..].splitn(2, ' ').collect();
 
                 /* XXX */
-                let mut tag_str = split.get(0).unwrap();
+                let tag_str = split.get(0).unwrap();
                 new_line = split.get(1).unwrap().to_string();
 
                 for tag in tag_str.split(';')

@@ -49,7 +49,7 @@ impl<'a> Error for ClientError<'a>
         {
             ClientError::IOError(ref e) =>
                 Some(e),
-            ClientError::InvalidStateError(ref s) =>
+            ClientError::InvalidStateError(_) =>
                 None,
             ClientError::ParsingError =>
                 None,
@@ -67,7 +67,7 @@ impl<'a> From<IOError> for ClientError<'a>
 
 impl<'a> From<FromUtf8Error> for ClientError<'a>
 {
-    fn from(e: FromUtf8Error) -> ClientError<'a>
+    fn from(_: FromUtf8Error) -> ClientError<'a>
     {
         /* XXX */
         ClientError::ParsingError
